@@ -16,7 +16,7 @@
         
         function getHumanChoice() {
             const choices = ["rock", "paper", "scissors"]; 
-            let humanChoice = window.prompt("Make your choice!'Rock', 'Paper', or 'Scissors'?: ").toLowerCase;
+            let humanChoice = window.prompt("Make your choice! 'Rock', 'Paper', or 'Scissors'?").toLowerCase();
             
             while (!choices.includes(humanChoice)) {
                 humanChoice = window.prompt("Well that can't be right? Make your choice! You need to enter Rock, Paper, or Scissors:").toLowerCase();
