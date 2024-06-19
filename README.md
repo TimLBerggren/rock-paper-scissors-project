@@ -1,5 +1,3 @@
-# tic-tac-toe-project
-
 # Rock Paper Scissors Game
 ## Introduction
 This project implements the classic game of Rock Paper Scissors entirely in the console. It serves as an introduction to JavaScript programming, focusing on basic logic and functions.
