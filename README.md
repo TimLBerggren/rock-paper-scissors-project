@@ -9,7 +9,7 @@ To build this project effectively I want to showcase my ability to:
 - Code: Implement the planned solutions.
 - Test: Verify functionality through console.log or browser tools.
 
-##Assignment Overview
+## Assignment Overview
 This project is structured into sequential steps:
 
 1. Setup the Project Structure: Initialize a Git repository and link JavaScript externally.
