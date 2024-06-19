@@ -11,7 +11,7 @@
         const choices = ["rock", "paper", "scissors"]; 
         
         function getComputerChoice() {
-            return Math.floor(Math.random() * 3);
+            return choices[Math.floor(Math.random() * 3)];
         }
         console.log(getComputerChoice())
         
@@ -25,9 +25,9 @@
         }
         console.log(getHumanChoice())
 
-        function playRound() {  
-            computerSelection = getComputerChoice(); 
-            humanSelection = getHumanChoice();
+        function playRound(humanChoice,computerChoice) {  
+            const computerSelection = getComputerChoice(); 
+            const humanSelection = getHumanChoice();
             
             if (humanSelection === 'Rock' && computerSelection === 'Scissors') {
                 humanScore += 1;
@@ -52,6 +52,9 @@
                 computerScore += 1;
                 return "It's a Tie!"
             }
+
+
+            playRound(humanSelection, computerSelection);
         }
         console.log(playRound())
 
