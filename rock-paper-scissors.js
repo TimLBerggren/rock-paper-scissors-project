@@ -32,9 +32,9 @@ function playRound() {
     }
 
     if (winningCombinations[humanSelection] === computerSelection) {
-        return "Darn! You win this round!"
+        return "Darn! You win this round..."
     }
 
-    return "HA! I win!"
+    return "HA! I win! You Lose!"
 }
 console.log(playRound())
