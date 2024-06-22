@@ -10,21 +10,22 @@ const winningCombinations = {
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
-console.log(getComputerChoice())
 
 function getHumanChoice() {
-    const humanChoice = window.prompt("Make your choice! 'Rock', 'Paper', or 'Scissors'?").toLowerCase();
+    let humanChoice = window.prompt("Make your choice! 'Rock', 'Paper', or 'Scissors'?").toLowerCase();
     
     while (!choices.includes(humanChoice)) {
         humanChoice = window.prompt("Well that can't be right? Make your choice! You need to enter Rock, Paper, or Scissors:").toLowerCase();
     }
     return humanChoice;
 }
-console.log(getHumanChoice())
 
-function playRound(humanChoice,computerChoice) {  
+function playRound() {  
     const computerSelection = getComputerChoice(); 
     const humanSelection = getHumanChoice();
+
+    console.log(`Human choice: ${humanSelection}`);
+    console.log(`Computer choice: ${computerSelection}`);
     
     if (humanSelection === computerSelection) {
         return "It's a Tie!"
