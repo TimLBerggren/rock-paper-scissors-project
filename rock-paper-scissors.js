@@ -1,6 +1,11 @@
 let humanScore = 0;
 let computerScore = 0;
-const choices = ["rock", "paper", "scissors"]; 
+const choices = ["rock", "paper", "scissors"];
+const winningCombinations = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper",
+}
 
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
@@ -20,32 +25,15 @@ console.log(getHumanChoice())
 function playRound(humanChoice,computerChoice) {  
     const computerSelection = getComputerChoice(); 
     const humanSelection = getHumanChoice();
-
-    if (humanSelection === 'Rock' && computerSelection === 'Scissors') {
-        humanScore += 1;
-        return "You win! Rock beats Scissors!";
-    } else if (humanSelection === 'Scissors' && computerSelection === 'Paper') {
-        humanScore += 1;
-        return "You win! Scissors beats Paper!";
-    } else if (humanSelection === 'Paper' && computerSelection === 'Rock') {
-        humanScore += 1;
-        return "You win! Paper beats Rock!";
-    } else if (humanSelection === 'Scissors' && computerSelection === 'Rock') {
-        computerScore += 1;
-        return "HA! Rock beats Scissors!";
-    } else if (humanSelection === 'Paper' && computerSelection === 'Scissors') {
-        computerScore += 1;
-        return "HA! Scissors beats Paper!";
-    } else if (humanSelection === 'Rock' && computerSelection === 'Paper') {
-        computerScore += 1;
-        return "HA! Paper beats Rock!";
-    } else {
-        humanScore += 1;
-        computerScore += 1;
+    
+    if (humanSelection === computerSelection) {
         return "It's a Tie!"
     }
 
+    if (winningCombinations[humanSelection] === computerSelection) {
+        return "Darn! You win this round!"
+    }
 
-    playRound(humanSelection, computerSelection);
+    return "HA! I win!"
 }
 console.log(playRound())
