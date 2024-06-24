@@ -38,6 +38,23 @@ function playRound() {
     computerScore++;
     return "HA! I win! You Lose!"
 }
-console.log(playRound())
-console.log(`Human score: ${humanScore}`)
-console.log(`Computer score: ${computerScore}`)
+
+function playGame() {
+    let results = ""
+
+    while (humanScore < 5 && computerScore < 5) {
+        console.log(playRound());
+        console.log(`Human score: ${humanScore}`);
+        console.log(`Computer score: ${computerScore}`);
+    }
+
+    if (humanScore === 5) {
+        results = "Winner winner! Chicken dinner!"
+    } else if (computerScore === 5) {
+        results = "Loser loser! Pork abuser!"
+    }
+    console.log(results);
+}
+
+playGame();
+
