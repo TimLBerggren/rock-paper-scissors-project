@@ -11,18 +11,8 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * 3)];
 }
 
-function getHumanChoice() {
-    let humanChoice = window.prompt("Make your choice! 'Rock', 'Paper', or 'Scissors'?").toLowerCase();
-    
-    while (!choices.includes(humanChoice)) {
-        humanChoice = window.prompt("Well that can't be right? Make your choice! You need to enter Rock, Paper, or Scissors:").toLowerCase();
-    }
-    return humanChoice;
-}
-
-function playRound() {  
+function playRound(humanSelection) {  
     const computerSelection = getComputerChoice(); 
-    const humanSelection = getHumanChoice();
 
     console.log(`Human choice: ${humanSelection}`);
     console.log(`Computer choice: ${computerSelection}`);
@@ -39,32 +29,33 @@ function playRound() {
     return "HA! I win! You Lose!"
 }
 
-function playGame() {
-    let results = ""
-
-    while (humanScore < 10000 && computerScore < 10000) {
-        console.log(playRound());
-        console.log(`Human score: ${humanScore}`);
-        console.log(`Computer score: ${computerScore}`);
-    }
-
-    console.log(results);
-}
-
-playGame();
+playRound();
 
 // UI
 const rockBtn = document.querySelector('#rock-button');
 const paperBtn = document.querySelector('#paper-button');
 const scissorBtn = document.querySelector('#scissor-button');
+const resultDiv = document.querySelector('#result');
+const humanScoreDiv = document.querySelector('#human-score');
+const computerScoreDiv = document.querySelector('#computer-score');
 
 rockBtn.addEventListener("click", () => {
-    playRound('rock', computerSelection());
-})
-paperBtn.addEventListener("click", () => {
-    playRound('paper', computerSelection());
-})
-scissorBtn.addEventListener("click", () => {
-    playRound('scissors', computerSelection());
-})
+    const result = playRound('rock');
+    resultDiv.textContent = result;
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+});
 
+paperBtn.addEventListener("click", () => {
+    const result = playRound('paper');
+    resultDiv.textContent = result;
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+});
+
+scissorBtn.addEventListener("click", () => {
+    const result = playRound('scissors');
+    resultDiv.textContent = result;
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+});
