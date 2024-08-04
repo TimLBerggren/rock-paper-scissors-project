@@ -28,13 +28,13 @@ function playRound(humanSelection) {
     return "HA! I win! You Lose!"
 }
 
-function restartGame() {
-    humanScore = 0;
-    computerScore = 0;
-    resultDiv.textContent = "";
-    humanScoreDiv.textContent = `Human score: ${humanScore}`;
-    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
-}
+// function restartGame() {
+//     humanScore = 0;
+//     computerScore = 0;
+//     resultDiv.textContent = "";
+//     humanScoreDiv.textContent = `Human score: ${humanScore}`;
+//     computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+// }
 
 // UI
 const rockBtn = document.querySelector('#rock-button');
@@ -66,5 +66,5 @@ scissorBtn.addEventListener("click", () => {
     computerScoreDiv.textContent = `Computer score: ${computerScore}`;
 });
 
-restartBtn.addEventListener("click", restartGame)
+// restartBtn.addEventListener("click", restartGame)
 
