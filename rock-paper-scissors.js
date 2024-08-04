@@ -42,17 +42,12 @@ function playRound() {
 function playGame() {
     let results = ""
 
-    while (humanScore < 5 && computerScore < 5) {
+    while (humanScore < 10000 && computerScore < 10000) {
         console.log(playRound());
         console.log(`Human score: ${humanScore}`);
         console.log(`Computer score: ${computerScore}`);
     }
 
-    if (humanScore === 5) {
-        results = "Winner winner! Chicken dinner!"
-    } else if (computerScore === 5) {
-        results = "Loser loser! Pork abuser!"
-    }
     console.log(results);
 }
 
