@@ -53,3 +53,18 @@ function playGame() {
 
 playGame();
 
+// UI
+const rockBtn = document.querySelector('#rock-button');
+const paperBtn = document.querySelector('#paper-button');
+const scissorBtn = document.querySelector('#scissor-button');
+
+rockBtn.addEventListener("click", () => {
+    playRound('rock', computerSelection());
+})
+paperBtn.addEventListener("click", () => {
+    playRound('paper', computerSelection());
+})
+scissorBtn.addEventListener("click", () => {
+    playRound('scissors', computerSelection());
+})
+
