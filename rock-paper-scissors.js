@@ -29,8 +29,6 @@ function playRound(humanSelection) {
     return "HA! I win! You Lose!"
 }
 
-playRound();
-
 // UI
 const rockBtn = document.querySelector('#rock-button');
 const paperBtn = document.querySelector('#paper-button');
