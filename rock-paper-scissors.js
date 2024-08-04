@@ -14,8 +14,7 @@ function getComputerChoice() {
 function playRound(humanSelection) {  
     const computerSelection = getComputerChoice(); 
 
-    console.log(`Human choice: ${humanSelection}`);
-    console.log(`Computer choice: ${computerSelection}`);
+    resultDiv.textContent = `Human choice: ${humanSelection} | Computer choice: ${computerSelection}`;
     
     if (humanSelection === computerSelection) {
         return "It's a Tie!"
@@ -29,6 +28,14 @@ function playRound(humanSelection) {
     return "HA! I win! You Lose!"
 }
 
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    resultDiv.textContent = "";
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+}
+
 // UI
 const rockBtn = document.querySelector('#rock-button');
 const paperBtn = document.querySelector('#paper-button');
@@ -36,6 +43,7 @@ const scissorBtn = document.querySelector('#scissor-button');
 const resultDiv = document.querySelector('#result');
 const humanScoreDiv = document.querySelector('#human-score');
 const computerScoreDiv = document.querySelector('#computer-score');
+const restartBtn = document.querySelector("#restart-button");
 
 rockBtn.addEventListener("click", () => {
     const result = playRound('rock');
@@ -57,3 +65,6 @@ scissorBtn.addEventListener("click", () => {
     humanScoreDiv.textContent = `Human score: ${humanScore}`;
     computerScoreDiv.textContent = `Computer score: ${computerScore}`;
 });
+
+restartBtn.addEventListener("click", restartGame)
+
