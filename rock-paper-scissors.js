@@ -47,13 +47,17 @@ function disableButtons() {
 }
 
 
-// function restartGame() {
-//     humanScore = 0;
-//     computerScore = 0;
-//     resultDiv.textContent = "";
-//     humanScoreDiv.textContent = `Human score: ${humanScore}`;
-//     computerScoreDiv.textContent = `Computer score: ${computerScore}`;
-// }
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    resultDiv.textContent = "";
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    gameEnd.textContent = '';
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorBtn.disabled = false;
+}
 
 // UI
 const rockBtn = document.querySelector('#rock-button');
@@ -63,6 +67,7 @@ const resultDiv = document.querySelector('#result');
 const humanScoreDiv = document.querySelector('#human-score');
 const computerScoreDiv = document.querySelector('#computer-score');
 const gameEnd = document.querySelector('#game-result');
+const restartBtn = document.querySelector('#restart-button');
 
 rockBtn.addEventListener("click", () => {
     const result = playRound('rock');
@@ -80,4 +85,8 @@ scissorBtn.addEventListener("click", () => {
     const result = playRound('scissors');
     resultDiv.textContent = result;
     updateScoresAndCheckWinner();
+});
+
+restartBtn.addEventListener("click", () => {
+    restartGame();
 });
