@@ -14,8 +14,6 @@ function getComputerChoice() {
 function playRound(humanSelection) {  
     const computerSelection = getComputerChoice(); 
 
-    resultDiv.textContent = `Human choice: ${humanSelection} | Computer choice: ${computerSelection}`;
-    
     if (humanSelection === computerSelection) {
         return "It's a Tie!"
     }
@@ -27,6 +25,27 @@ function playRound(humanSelection) {
     computerScore++;
     return "HA! I win! You Lose!"
 }
+
+
+function updateScoresAndCheckWinner() {
+    humanScoreDiv.textContent = `Human score: ${humanScore}`;
+    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    
+    if (humanScore === 5) {
+        gameEnd.textContent = "You beat the computer!!!";
+        disableButtons();
+    } else if (computerScore === 5) {
+        gameEnd.textContent = "You have been beaten by the computer!";
+        disableButtons();
+    }
+}
+
+function disableButtons() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorBtn.disabled = true;
+}
+
 
 // function restartGame() {
 //     humanScore = 0;
@@ -43,28 +62,22 @@ const scissorBtn = document.querySelector('#scissor-button');
 const resultDiv = document.querySelector('#result');
 const humanScoreDiv = document.querySelector('#human-score');
 const computerScoreDiv = document.querySelector('#computer-score');
-const restartBtn = document.querySelector("#restart-button");
+const gameEnd = document.querySelector('#game-result');
 
 rockBtn.addEventListener("click", () => {
     const result = playRound('rock');
     resultDiv.textContent = result;
-    humanScoreDiv.textContent = `Human score: ${humanScore}`;
-    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    updateScoresAndCheckWinner();
 });
 
 paperBtn.addEventListener("click", () => {
     const result = playRound('paper');
     resultDiv.textContent = result;
-    humanScoreDiv.textContent = `Human score: ${humanScore}`;
-    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    updateScoresAndCheckWinner();
 });
 
 scissorBtn.addEventListener("click", () => {
     const result = playRound('scissors');
     resultDiv.textContent = result;
-    humanScoreDiv.textContent = `Human score: ${humanScore}`;
-    computerScoreDiv.textContent = `Computer score: ${computerScore}`;
+    updateScoresAndCheckWinner();
 });
-
-// restartBtn.addEventListener("click", restartGame)
-
