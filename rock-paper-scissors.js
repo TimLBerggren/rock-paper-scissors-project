@@ -34,6 +34,7 @@ function updateScoresAndCheckWinner() {
     if (humanScore === 5) {
         gameEnd.textContent = "You beat the computer!!!";
         disableButtons();
+    
     } else if (computerScore === 5) {
         gameEnd.textContent = "You have been beaten by the computer!";
         disableButtons();
@@ -59,7 +60,6 @@ function restartGame() {
     scissorBtn.disabled = false;
 }
 
-// UI
 const rockBtn = document.querySelector('#rock-button');
 const paperBtn = document.querySelector('#paper-button');
 const scissorBtn = document.querySelector('#scissor-button');
